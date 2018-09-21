@@ -6,7 +6,7 @@ html, body {
   height: 5vh;
   margin-right: 1%;
   display: inline-block;
-  background-color: blue;
+  background-color: blue, red, green;
 }
 
 header {
