@@ -2,7 +2,7 @@ let colorArray = ['red', 'green', 'blue']
 
 
   $('button').on('click', () => {
-    //console.log('click works');
+    console.log('click works');
     // When the user clicks the button, populate the squares
     createSquares(30);
 
@@ -17,9 +17,12 @@ let colorArray = ['red', 'green', 'blue']
 
     for (let i = 0; i < numberOfSquares; i++){
       // creating squares
-      const $div = $('<div/>').on('click', () => {
-        $('.style').fadeTo('slow', .44);
-      });
+      // e is short for event
+      // e.currentTarget gives you the divs you are clicking on
+      const $div = $('<div/>').on('click', disappearSquares)
+      //  $(event.currentTarget).fadeTo('slow', 0);
+        //$(event.currentTarget).css('opacity', 0);
+
       // this is where the color is applied
       applyRandomColor($div);
       // attach to the square class
@@ -47,4 +50,8 @@ let colorArray = ['red', 'green', 'blue']
     }
 
 
+  }
+  const disappearSquares = (e) => {
+    //$(e.currentTarget).css('opacity', 0);
+    $(e.currentTarget).fadeTo('fast', 0);
   }
